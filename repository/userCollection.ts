@@ -30,3 +30,13 @@ export const updateUserInFirestore = async (
   await userQuery.update(updatedData);
   return true;
 };
+
+export const getAllUsersInFirestore = async (): Promise<User[]> => {
+  const userQuery = await db.collection("users").get();
+
+  if (userQuery.empty) return [];
+
+  const data = userQuery.docs.map((doc) => doc.data());
+
+  return data as User[];
+};

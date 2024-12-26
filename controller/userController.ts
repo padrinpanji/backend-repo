@@ -1,4 +1,3 @@
-import { db } from "@config/firebaseConfig";
 import {
   createUserInFirestore,
   getUserFromFirestore,
